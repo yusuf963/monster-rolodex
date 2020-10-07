@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, {Component} from "react"
+import ReactDOm from "react-dom"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+let skiDay ={
+  total:20,
+  powder:10,
+  country: 98,
+  goal:3
+}
+
+class SkiDayCounter extends React.Component{
+  
+  render(){
+    const {total, powder, country, goal}= this.props
+    return(
+      <section>
+        <div>
+          <p> Total {total} </p>
+        </div>
+        <div>
+          <p>Powder; {powder}</p>
+        </div>
+        <div>
+          <p> Country : {country}</p>
+        </div>
+        <div>
+          <p>Goal : {goal}</p>
+        </div>
+      </section>
+    )
+  }
+}
+
+ReactDOm.render(
+  <>
+  <SkiDayCounter
+    total={skiDay.total}
+    powder={skiDay.powder}
+    country={skiDay.country}
+    goal={skiDay.goal}
+  />
+  </>,
   document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+)
