@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CardList from './components/card-list/card-list.components.jsx'
-import style from './components/card-list/card-list.style.css'
-import './App.css';
+import {CardList} from './components/card-list/card-list.components.jsx'
+import './components/card-list/card-list.style.css'
 
 class App extends Component{
   constructor(){
@@ -10,7 +9,6 @@ class App extends Component{
       monsters:[ ]
     }
   }
-
 
    componentDidMount(){
      fetch('https://jsonplaceholder.typicode.com/users')
@@ -21,11 +19,9 @@ class App extends Component{
   
   render(){
     return(
-      <div className='card.list'>
-        <CardList />
-         {this.state.monsters.map(monster => <h3 key={monster.id}>{monster.name}</h3>)}
-       
-        <CardList/>
+      <div>
+      <CardList monsters={this.state.monsters}/>
+        
       </div>
     )
 
